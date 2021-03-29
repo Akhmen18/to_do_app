@@ -18,11 +18,15 @@ class _NoteListState extends State<NoteList> {
 
   @override
   Widget build(BuildContext context) {
+    if (noteList == null) {
+      noteList = List<Note>();
+      updateListView();
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text('TO DO'),
       ),
-      body: Container(),
+      body: getNoteListView(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         child: Icon(Icons.add),
